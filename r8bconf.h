@@ -48,18 +48,19 @@
 #if !defined( R8B_IPP )
 	/**
 	 * Set the R8B_IPP macro definition to 1 to enable the use of Intel IPP's
-	 * fast Fourier transform functions. Also uncomment and correct the IPP
-	 * header inclusion macros.
-	 *
-	 * Do not forget to call the ippInit() function at the start of the
-	 * application, before using this library's functions.
-	 */
-
+	 * fast Fourier transform functions.
+     */
 	#define R8B_IPP 0
-
-//	#include <ippcore.h>
-//	#include <ipps.h>
 #endif // !defined( R8B_IPP )
+
+#if R8B_IPP
+/**
+ * Do not forget to call the ippInit() function at the start of the
+ * application, before using this library's functions.
+ */
+#	include <ippcore.h>
+#	include <ipps.h>
+#endif /* R8B_IPP */
 
 #if !defined( R8BASSERT )
 	/**
